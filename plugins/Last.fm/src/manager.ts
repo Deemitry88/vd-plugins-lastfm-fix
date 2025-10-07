@@ -92,7 +92,7 @@ class PluginManager {
                     ? ActivityType.LISTENING
                     : ActivityType.PLAYING,
                 details: lastTrack.name,
-                state: `by ${lastTrack.artist}`,
+                state: `${lastTrack.artist}`,
                 status_display_type: 1,
                 application_id: Constants.APPLICATION_ID,
             };
@@ -122,11 +122,7 @@ class PluginManager {
                 if (asset[0]) {
                     activity.assets = {
                         large_image: asset[0],
-                        large_text: `on ${lastTrack.album}${
-                            currentSettings.showTimestamp && lastTrack.to
-                                ? ` • ${formatTime((lastTrack.to - lastTrack.from) / 1000)}`
-                                : ""
-                        }`,
+                        large_text: `${lastTrack.album}`,
                     };
                 }
             }
